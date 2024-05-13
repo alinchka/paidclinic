@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.paidclinic.ApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-13T22:12:47" hostname="LAPTOP-7G32VQ7S" time="0.417">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.paidclinic.ApplicationTests" time="0.417"/>
+  <system-out><![CDATA[01:12:24.398 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.paidclinic.ApplicationTests]: ApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+01:12:24.482 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.paidclinic.Application for test class com.paidclinic.ApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.4)
+
+2024-05-14T01:12:24.779+03:00  INFO 6236 --- [PaidClinic] [    Test worker] com.paidclinic.ApplicationTests          : Starting ApplicationTests using Java 21.0.3 with PID 6236 (started by Magicbook in D:\paidclinic)
+2024-05-14T01:12:24.781+03:00  INFO 6236 --- [PaidClinic] [    Test worker] com.paidclinic.ApplicationTests          : No active profile set, falling back to 1 default profile: "default"
+2024-05-14T01:12:25.166+03:00  INFO 6236 --- [PaidClinic] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-14T01:12:25.204+03:00  INFO 6236 --- [PaidClinic] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33 ms. Found 4 JPA repository interfaces.
+2024-05-14T01:12:25.746+03:00  INFO 6236 --- [PaidClinic] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-14T01:12:28.000+03:00  INFO 6236 --- [PaidClinic] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@463045fb
+2024-05-14T01:12:28.001+03:00  INFO 6236 --- [PaidClinic] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-14T01:12:28.037+03:00  INFO 6236 --- [PaidClinic] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-14T01:12:28.079+03:00  INFO 6236 --- [PaidClinic] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-14T01:12:28.109+03:00  INFO 6236 --- [PaidClinic] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-14T01:12:28.293+03:00  INFO 6236 --- [PaidClinic] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-14T01:12:29.950+03:00  INFO 6236 --- [PaidClinic] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: create table orders (id serial not null, order_num integer not null, user_id bigint, primary key (id))
+Hibernate: create table orders_products (order_id integer not null, products_id integer not null)
+Hibernate: create table products (id serial not null, category varchar(25) not null, cost integer not null, title varchar(25) not null, primary key (id))
+Hibernate: create table users (id bigserial not null, date_birth varchar(10) not null, email varchar(25) not null, user_name varchar(25) not null, password varchar(255) not null, primary key (id))
+Hibernate: create table users_orders (user_id bigint not null, orders_id integer not null)
+Hibernate: create table workshops (id serial not null, count integer not null, product_id integer, primary key (id))
+Hibernate: alter table if exists users_orders drop constraint if exists UK_1njdfitph68mh7p7c6f3qc736
+2024-05-14T01:12:32.688+03:00  WARN 6236 --- [PaidClinic] [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-14T01:12:32.688+03:00  WARN 6236 --- [PaidClinic] [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "uk_1njdfitph68mh7p7c6f3qc736" of relation "users_orders" does not exist, skipping
+Hibernate: alter table if exists users_orders add constraint UK_1njdfitph68mh7p7c6f3qc736 unique (orders_id)
+Hibernate: alter table if exists workshops drop constraint if exists UK_spvvoit4ud258eogmgbfjjxo8
+2024-05-14T01:12:33.380+03:00  WARN 6236 --- [PaidClinic] [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-14T01:12:33.380+03:00  WARN 6236 --- [PaidClinic] [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "uk_spvvoit4ud258eogmgbfjjxo8" of relation "workshops" does not exist, skipping
+Hibernate: alter table if exists workshops add constraint UK_spvvoit4ud258eogmgbfjjxo8 unique (product_id)
+Hibernate: alter table if exists orders add constraint FK32ql8ubntj5uh44ph9659tiih foreign key (user_id) references users
+Hibernate: alter table if exists orders_products add constraint FKqgxvu9mvqx0bv2ew776laoqvv foreign key (products_id) references products
+Hibernate: alter table if exists orders_products add constraint FKe4y1sseio787e4o5hrml7omt5 foreign key (order_id) references orders
+Hibernate: alter table if exists users_orders add constraint FK2lnf5jw8p8q0ytkr8dp0mlx6 foreign key (orders_id) references orders
+Hibernate: alter table if exists users_orders add constraint FKms88pdhtsiuuusjpeij73f6df foreign key (user_id) references users
+Hibernate: alter table if exists workshops add constraint FKq4dsnpcwcy7wbk0ky4rwk9gmq foreign key (product_id) references products
+2024-05-14T01:12:35.181+03:00  INFO 6236 --- [PaidClinic] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-14T01:12:35.631+03:00  WARN 6236 --- [PaidClinic] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-14T01:12:35.910+03:00  INFO 6236 --- [PaidClinic] [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@bbf361a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@46cb800b, org.springframework.security.web.context.SecurityContextHolderFilter@125c03d3, org.springframework.security.web.header.HeaderWriterFilter@5dd62f07, org.springframework.security.web.authentication.logout.LogoutFilter@7ccfed46, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@45fa7fb7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@24f8707c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7e4a6afd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@505a48a2, org.springframework.security.web.access.ExceptionTranslationFilter@76cad511, org.springframework.security.web.access.intercept.AuthorizationFilter@1b4ade78]
+2024-05-14T01:12:36.192+03:00  INFO 6236 --- [PaidClinic] [    Test worker] com.paidclinic.ApplicationTests          : Started ApplicationTests in 11.589 seconds (process running for 12.556)
+Hibernate: select p1_0.id,p1_0.category,p1_0.cost,p1_0.title from products p1_0
+Hibernate: insert into products (category,cost,title) values (?,?,?)
+Hibernate: insert into products (category,cost,title) values (?,?,?)
+Hibernate: insert into products (category,cost,title) values (?,?,?)
+Hibernate: insert into products (category,cost,title) values (?,?,?)
+Hibernate: insert into products (category,cost,title) values (?,?,?)
+Hibernate: insert into products (category,cost,title) values (?,?,?)
+Hibernate: insert into products (category,cost,title) values (?,?,?)
+Hibernate: insert into products (category,cost,title) values (?,?,?)
+Hibernate: insert into products (category,cost,title) values (?,?,?)
+Hibernate: insert into products (category,cost,title) values (?,?,?)
+Hibernate: insert into products (category,cost,title) values (?,?,?)
+Hibernate: insert into products (category,cost,title) values (?,?,?)
+Hibernate: insert into products (category,cost,title) values (?,?,?)
+Hibernate: insert into products (category,cost,title) values (?,?,?)
+Hibernate: insert into products (category,cost,title) values (?,?,?)
+Hibernate: insert into products (category,cost,title) values (?,?,?)
+Hibernate: insert into workshops (count,product_id) values (?,?)
+Hibernate: insert into workshops (count,product_id) values (?,?)
+Hibernate: insert into workshops (count,product_id) values (?,?)
+Hibernate: insert into workshops (count,product_id) values (?,?)
+Hibernate: insert into workshops (count,product_id) values (?,?)
+Hibernate: insert into workshops (count,product_id) values (?,?)
+Hibernate: insert into workshops (count,product_id) values (?,?)
+Hibernate: insert into workshops (count,product_id) values (?,?)
+Hibernate: insert into workshops (count,product_id) values (?,?)
+Hibernate: insert into workshops (count,product_id) values (?,?)
+Hibernate: insert into workshops (count,product_id) values (?,?)
+Hibernate: insert into workshops (count,product_id) values (?,?)
+Hibernate: insert into workshops (count,product_id) values (?,?)
+Hibernate: insert into workshops (count,product_id) values (?,?)
+Hibernate: insert into workshops (count,product_id) values (?,?)
+Hibernate: insert into workshops (count,product_id) values (?,?)
+]]></system-out>
+  <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (D:\4sem\kursach\paidClinic\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.14.12\be4984cb6fd1ef1d11f218a648889dfda44b8a15\byte-buddy-agent-1.14.12.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>

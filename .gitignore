@@ -1,6 +1,6 @@
 .gradle
-build/
-!build/libs/paidclinic-0.0.1-SNAPSHOT.jar
+#build/
+#!build/libs/paidclinic-0.0.1-SNAPSHOT.jar
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/resources/styles/style.css">
+    <link rel="stylesheet" href="/resources/styles/home.css">
+    <title>Поликлиника Ирины Юдиной</title>
+    <div class="logo">
+        <a href="/">
+            <img src="/resources/images/icon.png" width="80" height="80" />
+        </a>
+    </div>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
+
+
+
+    
+</head>
+<body>
+    <header>
+        <div class = "zakrep">
+            <div class="geo-phone-entrance">
+                <p class="geo">Россия, Москва</p>
+                <a class="geo" href="tel:89109689294">8-999-999-91-91 - круглосуточно </a>
+                <div sec:authorize="isAuthenticated()">
+                    <a href="/account" class="reg">Личный кабинет</a>
+                </div>
+                <div sec:authorize="isAnonymous()">
+                    <a href="/login" class="reg">Войти</a>
+                </div>
+
+            </div>
+            <div class="logo">
+                <a href="./home.html">
+                 <img src="/resources/images/icon.png" width="80" height="80" />
+                </a>
+            </div>
+            <div class="name">
+                Поликлиника Ирины Юдиной
+            </div>
+        </div>
+        <nav class = "menu">
+            <ul>
+                <li class="li-menu"><a href="#">О ПОЛИКЛИНИКЕ</a></li>
+                <li class="li-menu"><a href="#">ВРАЧИ</a></li>
+
+                <li class="li-menu" sec:authorize="isAuthenticated()">
+                    <a href="/catalog">УСЛУГИ</a>
+                </li>
+                <li class="li-menu" sec:authorize="isAnonymous()">
+                    <a href="/login">УСЛУГИ</a>
+                </li>
+
+                <li class="li-menu"><a href="#">АКЦИИ</a></li>
+                <li class="li-menu"><a href="#">ОТЗЫВЫ</a></li>
+
+                <li class="li-menu" sec:authorize="isAuthenticated()">
+                    <a href="#">МОИ ЗАПИСИ</a>
+                </li>
+                <li class="li-menu" sec:authorize="isAnonymous()">
+                    <a href="/login">МОИ ЗАПИСИ</a>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+    <main>
+        <div class="irina">
+            <div class="imgIrina">
+                <img class="imgExImg" src="/resources/images/ira.jpg" width="342" height="400">
+            </div>
+            <div class="exText">
+                Ирина Юдина — выдающийся врач-стоматолог, чья преданность качественной медицинской практике и стремление к профессиональному совершенству привели к созданию и руководству крупной платной поликлиникой.
+                <br>
+                <br>Свою карьеру в медицине Ирина начала не только как доктор, но и как страстный сторонник инноваций и современных методов лечения. Благодаря своему таланту, профессионализму и преданности пациентам, она быстро завоевала признание и доверие в медицинском сообществе.
+                <br>
+                <br>Вдохновленная желанием предложить пациентам идеальную комбинацию медицинских услуг и заботы о здоровье, Ирина Юдина основала собственную платную поликлинику. Ее миссия заключается в создании пространства, где каждый пациент может получить доступ к первоклассным медицинским услугам в комфортной и дружественной атмосфере.
+                <br>
+                <br>Под ее руководством поликлиника стала олицетворением качественной медицинской помощи, предлагая широкий спектр услуг: от профилактики и диагностики до лечения самых сложных заболеваний. Под ее лидерством медицинская команда поликлиники продолжает стремиться к новым высотам в области медицинской практики и клиентского обслуживания.
+                <br>
+                
+            </div>
+        </div>
+        <div class="text2">
+            <br>Благодаря профессионализму, заботе и личному вниманию к каждому пациенту, Ирина Юдина и ее поликлиника продолжают оставаться востребованными и уважаемыми в медицинском сообществе, доказывая, что самое важное — это здоровье и благополучие тех, кто обращается за помощью.
+            <br>
+            <br>Кроме того, Ирина Юдина является автором ряда научных статей в области стоматологии, внесшими значительный вклад в развитие профессиональной медицинской практики. Ее работы получили признание не только в России, но и за ее пределами, отмечаясь на международных конференциях и симпозиумах.
+        </div>
+    </main>
+    <br><br>
+    <footer>
+        <p>&copy; ИКБО-01-22. Зубеева Алина Андреевна. </p>
+    </footer>
+</body>
+</html>

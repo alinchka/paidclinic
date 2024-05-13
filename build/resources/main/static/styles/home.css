@@ -1,0 +1,24 @@
+.irina{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 5px;
+}
+
+.imgIrina{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.exText{
+    margin-left: 5%;
+    margin-right: 20%;
+    font-size: 20px;
+}
+
+.text2{
+    margin-left: 1%;
+    margin-right: 17%;
+    font-size: 20px;
+}
+

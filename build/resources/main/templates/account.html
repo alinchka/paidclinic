@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="logo">
+        <a href="/home">
+            <img src="/resources/images/icon.png" width="80" height="80" />
+        </a>
+    </div>
+    <title>Аккаунт</title>
+    <link rel="stylesheet" href="/resources/styles/style.css">
+    <link rel="stylesheet" href="/resources/styles/account.css">
+</head>
+<body>
+    <header>
+        <div class = "zakrep">
+            <div class="geo-phone-entrance">
+                <p class="geo">Россия, Москва</p>
+                <a class="geo" href="tel:89109689294">8-999-999-91-91 - круглосуточно </a>
+                <a href="/account" class="reg">Личный кабинет</a>
+            </div>
+            <div class="logo">
+                <a href="./home.html">
+                    <img src="/resources/images/icon.png" width="80" height="80" />
+                </a>
+            </div>
+            <div class="name">
+                Поликлиника Ирины Юдиной
+            </div>
+        </div>
+        <nav class = "menu">
+            <ul>
+                <li class="li-menu"><a href="#">О ПОЛИКЛИНИКЕ</a></li>
+                <li class="li-menu"><a href="#">ВРАЧИ</a></li>
+                <li class="li-menu"><a href="/catalog">УСЛУГИ</a></li>
+                <li class="li-menu"><a href="#">АКЦИИ</a></li>
+                <li class="li-menu"><a href="#">ОТЗЫВЫ</a></li>
+                <li class="li-menu"><a href="#">МОИ ЗАПИСИ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="top">
+            <div><h1 style="margin: 0;">Ваш аккаунт</h1></div>
+            <div><a href="/logout" class="btn">Выход</a></div>
+        </div>
+        <div class="profile-info">
+            <h2>Личные данные</h2>
+            <p><strong>ФИО:</strong> <span th:text="${user.name}"></span></p>
+            <p><strong>Дата рождения:</strong> <span th:text="${user.dateBirth}"></span></p>
+        </div>
+        <div class="order-history">
+            <h2>Мои записи</h2>
+            <ul class="order-list">
+                <li class="order-item" th:each="order, orderIndex : ${user.orders}" th:id="'order-' + ${orderIndex.index}">
+                    <span class="order-number order-header" th:text="'Заказ #' + ${order.getOrderNum()}"
+                          th:attr="data-order-index=${orderIndex.index}" th:onclick="toggleOrder(this)"></span>
+                    <ul class="product-list" th:id="'products-' + ${orderIndex.index}" style="display:none;">
+                        <li class="product-item" th:each="product : ${order.products}">
+                            <span th:text="${product.category}"></span>
+                            <span th:text="${product.title}"></span>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="order-item" th:if="${#lists.isEmpty(user.orders)}">
+                    <p>Заказы отсутствуют</p>
+                </li>
+            </ul>
+        </div>
+        <script th:inline="javascript">
+            function toggleOrder(element) {
+                var orderIndex = element.getAttribute("data-order-index");
+                var productsElement = document.getElementById('products-' + orderIndex);
+                if (productsElement.style.display === "none") {
+                    productsElement.style.display = "block";
+                } else {
+                    productsElement.style.display = "none";
+                }
+            }
+        </script>
+    </main>
+<footer>
+    <p>&copy; ИКБО-01-22. Зубеева Алина Андреевна. </p>
+</footer>
+</body>
+</html>

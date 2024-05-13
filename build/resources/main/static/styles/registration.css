@@ -1,0 +1,41 @@
+.nameDate{
+    font-size: 25px;
+    margin-left: 20%;
+}
+
+.input_value{
+    color: white;
+}
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="password"] {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.form-group{
+  margin-left: 15%;
+}
+button {
+    background: rgb(49,153,151);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 45%;
+    height: 15%;
+    margin-left: 30%;
+}
+
+button:hover {
+    background: rgb(36, 115, 114);
+}
+
+.alert {
+    font-weight: 600;
+    color: #d30000;
+    text-align: center;
+}
+
