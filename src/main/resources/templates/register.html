@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Регистрация</title>
+
+    <link rel="stylesheet" href="/resources/styles/enter.css" />
+    <link rel="stylesheet" href="/resources/styles/registration.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+<span></span>
+<span></span>
+<span></span>
+<div class="fild">
+    <form method="POST" th:action="@{/register}" th:object="${user}">
+        <div th:if="${param.exists}" class="alert alert-error">
+            Пользователь с таким именем существует
+        </div>
+        <div th:if="${param.error}" class="alert alert-error">
+            Пароли не совпадают!
+        </div>
+        <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+            <legend>Регистрация</legend>
+        </div>
+        <div class="form-group">
+            <label for="username">ФИО пользователя:</label>
+            <br><input class="input_value" type="text" id="username" name="username" th:field="*{name}" required>
+        </div>
+        <div class="form-group">
+            <label for="date">Дата рождения:</label>
+            <br><input class="input_value" placeholder="01.01.2001" type="text" id="date" name="date" th:field="*{dateBirth}" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Электронная почта:</label>
+            <br><input class="input_value" type="text" id="email" name="email" th:field="*{email}" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Пароль:</label>
+            <br><input class="input_value" type="password" id="password" name="password" th:field="*{password}" required>
+        </div>
+        <div class="form-group">
+            <label for="confirm_password">Подтверждение пароля:</label>
+            <br><input class="input_value" type="password" id="confirm_password" name="confirmPassword" th:field="*{confirmPassword}" required>
+        </div>
+        <div>
+            <button type="submit">Регистрация</button>
+            <br>
+        </div>
+        <div><a class="button2" href="/">Отмена</a></div>
+    </form>
+    <p>
+
+
+
+        </fieldset>
+        </form>
+        <br><br><br>
+    </p>
+
+</body>
+</html>

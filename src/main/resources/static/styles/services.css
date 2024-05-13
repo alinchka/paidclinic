@@ -1,0 +1,102 @@
+main {
+    display: flex;
+    justify-content: space-between;
+}
+.namespace {
+    display: flex; 
+    justify-content: center;
+}
+.namespace h1 {
+    margin-bottom: 30px;
+}
+h2{
+    font-size: 20px;
+    padding-bottom: 5px;
+}
+.container {
+    display: grid;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 70px;
+    padding: 20px;
+}
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+}
+.product {
+    width: 250px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+}
+.cart {
+    width: 320px;
+    margin-right: 5%;
+    padding: 20px;
+    text-align: center;
+}
+.create-order {
+    margin-top: 30px;
+}
+.create-order button {
+    text-decoration: none;
+    background: rgb(49,153,151);
+    color: #fff;
+    font-size: medium;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.cart button:hover {
+    background: rgb(57, 174, 172);
+}
+#cart-items {
+    margin-top: 20px;
+    list-style: none;
+}
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+.quantity-controls {
+    margin-left: 20px;
+}
+.quantity-controls button {
+    background: rgb(49,153,151);
+    color: #fff;
+    border: none;
+    font-size: medium;
+    padding: 1px 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 7px;
+}
+
+.product button {
+    margin-top: 20px;
+    background: rgb(49,153,151);
+    color: #fff;
+    border: none;
+    font-size: medium;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product button:hover {
+    background: rgb(57, 174, 172);
+}
+#productName {
+    margin-bottom: 20px;
+}
+

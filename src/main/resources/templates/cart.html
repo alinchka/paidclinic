@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/resources/images/icon.png">
+    <title>Записи</title>
+    <link rel="stylesheet" href="/resources/styles/style.css">
+    <link rel="stylesheet" href="/resources/styles/cart.css">
+</head>
+<body>
+    <header>
+        <div class = "zakrep">
+            <div class="geo-phone-entrance">
+                <p class="geo">Россия, Москва</p>
+                <a class="geo" href="tel:89109689294">8-999-999-91-91 - круглосуточно </a>
+                <a href="./account.html" class="reg">Личный кабинет</a>
+            </div>
+            <div class="logo">
+                <a href="./home.html">
+                    <img src="./resources/images/icon.png" width="80" height="80" />
+                </a>
+            </div>
+            <div class="name">
+                Поликлиника Ирины Юдиной
+            </div>
+        </div>
+        <nav class = "menu">
+            <ul>
+                <li class="li-menu"><a href="#">О ПОЛИКЛИНИКЕ</a></li>
+                <li class="li-menu"><a href="#">ВРАЧИ</a></li>
+                <li class="li-menu"><a href="./services.html">УСЛУГИ</a></li>
+                <li class="li-menu"><a href="#">АКЦИИ</a></li>
+                <li class="li-menu"><a href="#">ОТЗЫВЫ</a></li>
+                <li class="li-menu"><a href="#">МОИ ЗАПИСИ</a></li>
+            </ul>
+        </nav>
+    </header>
+<main>
+    <div class="cart">
+        <h2>Корзина</h2>
+        <ul id="cart-items">
+        </ul>
+        <div class="create-order">
+            <a onclick="sendRequest()">Оформить</a>
+        </div>
+    </div>
+    <script src="/resources/scripts/market.js"></script>
+</main>
+<footer>
+    <p>&copy; ИКБО-01-22. Зубеева Алина Андреевна. </p>
+</footer>
+</body>
+</html>

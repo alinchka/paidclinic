@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="logo">
+        <a href="/home">
+            <img src="/resources/images/icon.png" width="80" height="80" />
+        </a>
+    </div>
+    <title>Услуги</title>
+    <link rel="stylesheet" href="/resources/styles/style.css">
+    <link rel="stylesheet" href="/resources/styles/services.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
+
+
+
+
+</head>
+<body>
+<header>
+    <div class = "zakrep">
+        <div class="geo-phone-entrance">
+            <p class="geo">Россия, Москва</p>
+            <a class="geo" href="tel:89109689294">8-999-999-91-91 - круглосуточно </a>
+            <a href="/account" class="reg">Личный кабинет</a>
+        </div>
+        <div class="logo">
+            <a href="/home">
+                <img src="/resources/images/icon.png" width="80" height="80" />
+            </a>
+        </div>
+        <div class="name">
+            Поликлиника Ирины Юдиной
+        </div>
+    </div>
+    <nav class = "menu">
+        <ul>
+            <li class="li-menu"><a href="#">О ПОЛИКЛИНИКЕ</a></li>
+            <li class="li-menu"><a href="#">ВРАЧИ</a></li>
+            <li class="li-menu"><a href="/catalog">УСЛУГИ</a></li>
+            <li class="li-menu"><a href="#">АКЦИИ</a></li>
+            <li class="li-menu"><a href="#">ОТЗЫВЫ</a></li>
+            <li class="li-menu"><a href="#">МОИ ЗАПИСИ</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <div class="container">
+        <div>
+            <div class="namespace">
+                <h1>Стоматолог Ирина Юдина</h1>
+            </div>
+            <div class="products" id="ira-products">
+                <div th:each="workshop : ${workshops}" class="product" th:if="${workshop.product.category eq 'udina'}">
+                    <h2 th:text="${workshop.product.title}" class="productName"></h2>
+                    <div>
+                        <div style="display: flex; flex-direction: row">
+                            <p>Стоимость:&nbsp;</p>
+                            <p th:text="${workshop.product.cost}" class="productCost"></p>
+                            <p>&nbsp;руб.</p>
+                        </div>
+                        <div style="display: flex; flex-direction: row">
+                            <p>Осталось талонов:&nbsp;</p>
+                            <p th:text="${workshop.count}"></p>
+                        </div>
+                    </div>
+                    <button onclick="addToCart(this)">Записаться</button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="namespace">
+                <h1>Терапевт Алексей Попов</h1>
+            </div>
+            <div class="products" id="lesha-products">
+                <div th:each="workshop : ${workshops}" class="product" th:if="${workshop.product.category eq 'popov'}">
+
+                    <h2 th:text="${workshop.product.title}" class="productName"></h2>
+                    <div>
+                        <div style="display: flex; flex-direction: row">
+                            <p>Стоимость:&nbsp;</p>
+                            <p th:text="${workshop.product.cost}" class="productCost"></p>
+                            <p>&nbsp;руб.</p>
+                        </div>
+                        <div style="display: flex; flex-direction: row">
+                            <p>Осталось талонов:&nbsp;</p>
+                            <p th:text="${workshop.count}"></p>
+                        </div>
+                    </div>
+                    <button onclick="addToCart(this)">Записаться</button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="namespace">
+                <h1>Хирург Ксения Ильина</h1>
+            </div>
+            <div class="products" id="ksu-products">
+                <div th:each="workshop : ${workshops}" class="product" th:if="${workshop.product.category eq 'ilina'}">
+
+                    <h2 th:text="${workshop.product.title}" class="productName"></h2>
+                    <div>
+                        <div style="display: flex; flex-direction: row">
+                            <p>Стоимость:&nbsp;</p>
+                            <p th:text="${workshop.product.cost}" class="productCost"></p>
+                            <p>&nbsp;руб.</p>
+                        </div>
+                        <div style="display: flex; flex-direction: row">
+                            <p>Осталось талонов:&nbsp;</p>
+                            <p th:text="${workshop.count}"></p>
+                        </div>
+                    </div>
+                    <button onclick="addToCart(this)">Записаться</button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="namespace">
+                <h1>Невролог Евгений Солнцев</h1>
+            </div>
+            <div class="products" id="evg-products">
+                <div th:each="workshop : ${workshops}" class="product" th:if="${workshop.product.category eq 'sun'}">
+
+                    <h2 th:text="${workshop.product.title}" class="productName"></h2>
+                    <div>
+                        <div style="display: flex; flex-direction: row">
+                            <p>Стоимость:&nbsp;</p>
+                            <p th:text="${workshop.product.cost}" class="productCost"></p>
+                            <p>&nbsp;руб.</p>
+                        </div>
+                        <div style="display: flex; flex-direction: row">
+                            <p>Осталось талонов:&nbsp;</p>
+                            <p th:text="${workshop.count}"></p>
+                        </div>
+                    </div>
+                    <button onclick="addToCart(this)">Записаться</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cart">
+        <h2>Выбрано</h2>
+        <ul id="cart-items">
+        </ul>
+        <div class="create-order">
+            <button onclick="sendRequest()">Подтвердить записи</button>
+        </div>
+    </div>
+    <script src="/resources/scripts/market.js"></script>
+</main>
+<br><br>
+<footer>
+    <p>&copy; ИКБО-01-22. Зубеева Алина Андреевна. </p>
+</footer>
+<script>
+    function sendRequest() {
+        var cookies = document.cookie;
+        document.cookie = "cartItems=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        window.location.href = '/getproducts?products=' + encodeURIComponent(cookies)
+    }
+</script>
+</body>
+</html>
